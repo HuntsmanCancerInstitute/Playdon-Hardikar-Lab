@@ -1,0 +1,177 @@
+recipe_sku,recipe_name,preparation_instructions,ingredient,amount,unit
+1,Chickpea Salad,1. Rinse chickpeas. 2. Dice cucumber and tomatoes. 3. Mix everything and drizzle olive oil.,canned chickpeas,100,g
+1,Chickpea Salad,1. Rinse chickpeas. 2. Dice cucumber and tomatoes. 3. Mix everything and drizzle olive oil.,cucumber,50,g
+1,Chickpea Salad,1. Rinse chickpeas. 2. Dice cucumber and tomatoes. 3. Mix everything and drizzle olive oil.,tomatoes,50,g
+1,Chickpea Salad,1. Rinse chickpeas. 2. Dice cucumber and tomatoes. 3. Mix everything and drizzle olive oil.,olive oil,5,g
+2,Beef Stir-Fry,1. Slice beef thinly. 2. Stir-fry beef and vegetables in sesame oil. 3. Serve hot.,lean beef,120,g
+2,Beef Stir-Fry,1. Slice beef thinly. 2. Stir-fry beef and vegetables in sesame oil. 3. Serve hot.,bell peppers,50,g
+2,Beef Stir-Fry,1. Slice beef thinly. 2. Stir-fry beef and vegetables in sesame oil. 3. Serve hot.,onions,30,g
+2,Beef Stir-Fry,1. Slice beef thinly. 2. Stir-fry beef and vegetables in sesame oil. 3. Serve hot.,sesame oil,5,g
+3,Avocado Egg Bowl,1. Slice avocado and egg. 2. Drizzle lemon juice over. 3. Serve together.,avocado,1,g
+3,Avocado Egg Bowl,1. Slice avocado and egg. 2. Drizzle lemon juice over. 3. Serve together.,boild egg,100,g
+3,Avocado Egg Bowl,1. Slice avocado and egg. 2. Drizzle lemon juice over. 3. Serve together.,lemon juice,5,g
+4,Chicken Rice Bowl,1. Grill chicken. 2. Steam green beans. 3. Serve over brown rice.,grilled chicken,100,g
+4,Chicken Rice Bowl,1. Grill chicken. 2. Steam green beans. 3. Serve over brown rice.,cooked brown rice,100,g
+4,Chicken Rice Bowl,1. Grill chicken. 2. Steam green beans. 3. Serve over brown rice.,green beans,30,g
+5,Lentil Soup,1. Cook lentils with diced carrots and celery. 2. Add olive oil before serving.,lentils,80,g
+5,Lentil Soup,1. Cook lentils with diced carrots and celery. 2. Add olive oil before serving.,carrots,50,g
+5,Lentil Soup,1. Cook lentils with diced carrots and celery. 2. Add olive oil before serving.,celery,50,g
+5,Lentil Soup,1. Cook lentils with diced carrots and celery. 2. Add olive oil before serving.,olive oil,5,g
+6,Quinoa Bowl,1. Cook quinoa. 2. Mix with vegetables and chickpeas. 3. Serve warm.,cooked quinoa,150,g
+6,Quinoa Bowl,1. Cook quinoa. 2. Mix with vegetables and chickpeas. 3. Serve warm.,mixed vegetables,100,g
+6,Quinoa Bowl,1. Cook quinoa. 2. Mix with vegetables and chickpeas. 3. Serve warm.,chickpeas,50,g
+7,Greek Yogurt Parfait,1. Layer yogurt with berries and drizzle honey. 2. Serve chilled.,Greek yogurt,200,g
+7,Greek Yogurt Parfait,1. Layer yogurt with berries and drizzle honey. 2. Serve chilled.,berries,50,g
+7,Greek Yogurt Parfait,1. Layer yogurt with berries and drizzle honey. 2. Serve chilled.,honey,10,g
+8,Oatmeal Bowl,1. Cook oats in almond milk. 2. Top with nuts. 3. Serve warm.,oats,100,g
+8,Oatmeal Bowl,1. Cook oats in almond milk. 2. Top with nuts. 3. Serve warm.,almond milk,200,ml
+8,Oatmeal Bowl,1. Cook oats in almond milk. 2. Top with nuts. 3. Serve warm.,nuts,30,g
+9,Tuna Salad,1. Mix tuna with chopped lettuce. 2. Drizzle olive oil before serving.,canned tuna,150,g
+9,Tuna Salad,1. Mix tuna with chopped lettuce. 2. Drizzle olive oil before serving.,lettuce,50,g
+9,Tuna Salad,1. Mix tuna with chopped lettuce. 2. Drizzle olive oil before serving.,olive oil,10,g
+10,Turkey Wrap,1. Fill wrap with turkey and veggies. 2. Roll and serve.,turkey breast,100,g
+10,Turkey Wrap,1. Fill wrap with turkey and veggies. 2. Roll and serve.,Whole wheat wrap,,
+10,Turkey Wrap,1. Fill wrap with turkey and veggies. 2. Roll and serve.,Lettuce and tomato,,
+11,Salmon and Asparagus,1. Bake salmon and asparagus with olive oil. 2. Serve hot.,salmon,100,g
+11,Salmon and Asparagus,1. Bake salmon and asparagus with olive oil. 2. Serve hot.,asparagus,50,g
+11,Salmon and Asparagus,1. Bake salmon and asparagus with olive oil. 2. Serve hot.,olive oil,5,g
+12,Black Bean Burrito,"1. Fill tortilla with beans, lettuce, and salsa. 2. Roll and serve.",black beans,100,g
+12,Black Bean Burrito,"1. Fill tortilla with beans, lettuce, and salsa. 2. Roll and serve.",wheat tortilla,1,whole
+12,Black Bean Burrito,"1. Fill tortilla with beans, lettuce, and salsa. 2. Roll and serve.",lettuce,50,g
+12,Black Bean Burrito,"1. Fill tortilla with beans, lettuce, and salsa. 2. Roll and serve.",salsa,20,g
+13,Cottage Cheese Bowl,1. Mix cottage cheese with strawberries and walnuts. 2. Serve chilled.,cottage cheese,100,g
+13,Cottage Cheese Bowl,1. Mix cottage cheese with strawberries and walnuts. 2. Serve chilled.,walnuts,30,g
+13,Cottage Cheese Bowl,1. Mix cottage cheese with strawberries and walnuts. 2. Serve chilled.,strawberries,50,g
+14,Egg Veggie Scramble,1. Scramble eggs with spinach and tomatoes in olive oil. 2. Serve warm.,egg,2,egg
+14,Egg Veggie Scramble,1. Scramble eggs with spinach and tomatoes in olive oil. 2. Serve warm.,spinach,50,g
+14,Egg Veggie Scramble,1. Scramble eggs with spinach and tomatoes in olive oil. 2. Serve warm.,tomatoes,30,g
+14,Egg Veggie Scramble,1. Scramble eggs with spinach and tomatoes in olive oil. 2. Serve warm.,olive oil,5,g
+15,Greek Yogurt Parfait,"1. Layer yogurt, blueberries, and chia seeds. 2. Serve immediately.",Greek yogurt,150,g
+15,Greek Yogurt Parfait,"1. Layer yogurt, blueberries, and chia seeds. 2. Serve immediately.",blueberries,30,g
+15,Greek Yogurt Parfait,"1. Layer yogurt, blueberries, and chia seeds. 2. Serve immediately.",chia seeds,10,g
+16,Oatmeal with Berries,1. Cook oats with water. 2. Top with berries.,oats,50,g
+16,Oatmeal with Berries,1. Cook oats with water. 2. Top with berries.,mixed berries,50,g
+16,Oatmeal with Berries,1. Cook oats with water. 2. Top with berries.,water,200,ml
+17,Shrimp Quinoa Salad,1. Cook quinoa. 2. Toss shrimp and cucumber with quinoa.,cooked shrimp,100,g
+17,Shrimp Quinoa Salad,1. Cook quinoa. 2. Toss shrimp and cucumber with quinoa.,quinoa,100,g
+17,Shrimp Quinoa Salad,1. Cook quinoa. 2. Toss shrimp and cucumber with quinoa.,cucumber,30,g
+18,Sweet Potato Fries,1. Slice sweet potato. 2. Toss in olive oil and paprika. 3. Bake at 200°C until crispy.,sweet potato,150,g
+18,Sweet Potato Fries,1. Slice sweet potato. 2. Toss in olive oil and paprika. 3. Bake at 200°C until crispy.,olive oil,5,g
+18,Sweet Potato Fries,1. Slice sweet potato. 2. Toss in olive oil and paprika. 3. Bake at 200°C until crispy.,Pinch paprika,1,g
+19,Turkey Wrap,1. Fill wrap with turkey and spinach. 2. Roll and serve.,turkey slices,100,g
+19,Turkey Wrap,1. Fill wrap with turkey and spinach. 2. Roll and serve.,Whole wheat wrap,1,
+19,Turkey Wrap,1. Fill wrap with turkey and spinach. 2. Roll and serve.,spinach,30,g
+20,Egg White Omelette,1. Cook egg whites with spinach and mushrooms. 2. Serve hot.,whites,3,egg
+20,Egg White Omelette,1. Cook egg whites with spinach and mushrooms. 2. Serve hot.,mushrooms,30,g
+20,Egg White Omelette,1. Cook egg whites with spinach and mushrooms. 2. Serve hot.,spinach,30,g
+20,Egg White Omelette,1. Cook egg whites with spinach and mushrooms. 2. Serve hot.,olive oil,5,g
+21,Chicken Pita Pocket,1. Fill pita with chicken and cucumber. 2. Serve fresh.,grilled chicken,100,g
+21,Chicken Pita Pocket,1. Fill pita with chicken and cucumber. 2. Serve fresh.,wheat pita,1,whole
+21,Chicken Pita Pocket,1. Fill pita with chicken and cucumber. 2. Serve fresh.,cucumber,30,g
+22,Lentil Veggie Stew,1. Cook lentils with broth and vegetables. 2. Simmer until tender.,lentils,100,g
+22,Lentil Veggie Stew,1. Cook lentils with broth and vegetables. 2. Simmer until tender.,carrots,50,g
+22,Lentil Veggie Stew,1. Cook lentils with broth and vegetables. 2. Simmer until tender.,zucchini,50,g
+22,Lentil Veggie Stew,1. Cook lentils with broth and vegetables. 2. Simmer until tender.,vegetable broth,200,ml
+23,Cheese and Nut Plate,"1. Arrange cheese, nuts, and cucumber. 2. Serve chilled.",cheddar cheese,50,g
+23,Cheese and Nut Plate,"1. Arrange cheese, nuts, and cucumber. 2. Serve chilled.",almonds,30,g
+23,Cheese and Nut Plate,"1. Arrange cheese, nuts, and cucumber. 2. Serve chilled.",cucumber slices,30,g
+24,Beef and Broccoli Stir-fry,1. Stir-fry beef and broccoli with soy sauce. 2. Serve warm.,lean beef,120,g
+24,Beef and Broccoli Stir-fry,1. Stir-fry beef and broccoli with soy sauce. 2. Serve warm.,broccoli,50,g
+24,Beef and Broccoli Stir-fry,1. Stir-fry beef and broccoli with soy sauce. 2. Serve warm.,soy sauce,5,g
+25,Apple Peanut Butter Snack,1. Slice apple and spread peanut butter. 2. Serve immediately.,apple,1,medium
+25,Apple Peanut Butter Snack,1. Slice apple and spread peanut butter. 2. Serve immediately.,peanut butter,20,g
+26,Vegetable Stir-fry,1. Stir-fry all vegetables in olive oil. 2. Serve hot.,bell peppers,50,g
+26,Vegetable Stir-fry,1. Stir-fry all vegetables in olive oil. 2. Serve hot.,zucchini,50,g
+26,Vegetable Stir-fry,1. Stir-fry all vegetables in olive oil. 2. Serve hot.,carrots,50,g
+26,Vegetable Stir-fry,1. Stir-fry all vegetables in olive oil. 2. Serve hot.,olive oil,5,g
+27,Grilled Chicken Caesar Salad,"1. Toss chicken with lettuce, cheese, and dressing. 2. Serve fresh.",grilled chicken,120,g
+27,Grilled Chicken Caesar Salad,"1. Toss chicken with lettuce, cheese, and dressing. 2. Serve fresh.",romaine lettuce,50,g
+27,Grilled Chicken Caesar Salad,"1. Toss chicken with lettuce, cheese, and dressing. 2. Serve fresh.",Parmesan cheese,20,g
+27,Grilled Chicken Caesar Salad,"1. Toss chicken with lettuce, cheese, and dressing. 2. Serve fresh.",Caesar dressing,10,g
+28,Zucchini Noodles with Pesto,1. Toss zucchini noodles with pesto. 2. Serve cold or slightly warmed.,zucchini noodles,100,g
+28,Zucchini Noodles with Pesto,1. Toss zucchini noodles with pesto. 2. Serve cold or slightly warmed.,pesto,20,g
+29,Chickpea Curry,1. Cook chickpeas with tomatoes and curry powder. 2. Simmer and serve.,chickpeas,100,g
+29,Chickpea Curry,1. Cook chickpeas with tomatoes and curry powder. 2. Simmer and serve.,tomatoes,50,g
+29,Chickpea Curry,1. Cook chickpeas with tomatoes and curry powder. 2. Simmer and serve.,curry powder,5,g
+30,Almond Butter Smoothie,"1. Blend almond milk, almond butter, and spinach. 2. Serve chilled.",almond milk,200,ml
+30,Almond Butter Smoothie,"1. Blend almond milk, almond butter, and spinach. 2. Serve chilled.",almond butter,20,g
+30,Almond Butter Smoothie,"1. Blend almond milk, almond butter, and spinach. 2. Serve chilled.",spinach,30,g
+31,Baked Cod with Vegetables,1. Bake cod and vegetables with olive oil. 2. Serve hot.,cod fillet,120,g
+31,Baked Cod with Vegetables,1. Bake cod and vegetables with olive oil. 2. Serve hot.,zucchini,50,g
+31,Baked Cod with Vegetables,1. Bake cod and vegetables with olive oil. 2. Serve hot.,bell peppers,50,g
+31,Baked Cod with Vegetables,1. Bake cod and vegetables with olive oil. 2. Serve hot.,olive oil,5,g
+32,Chicken Couscous Salad,1. Mix couscous with chicken and tomatoes. 2. Serve chilled.,cooked couscous,100,g
+32,Chicken Couscous Salad,1. Mix couscous with chicken and tomatoes. 2. Serve chilled.,grilled chicken,100,g
+32,Chicken Couscous Salad,1. Mix couscous with chicken and tomatoes. 2. Serve chilled.,cherry tomatoes,30,g
+33,Steamed Broccoli and Tofu,1. Steam tofu and broccoli. 2. Drizzle with soy sauce.,firm tofu,100,g
+33,Steamed Broccoli and Tofu,1. Steam tofu and broccoli. 2. Drizzle with soy sauce.,broccoli,100,g
+33,Steamed Broccoli and Tofu,1. Steam tofu and broccoli. 2. Drizzle with soy sauce.,soy sauce,5,g
+34,Turkey Chili,"1. Cook turkey, beans, and tomatoes together. 2. Simmer and serve.",ground turkey,120,g
+34,Turkey Chili,"1. Cook turkey, beans, and tomatoes together. 2. Simmer and serve.",kidney beans,50,g
+34,Turkey Chili,"1. Cook turkey, beans, and tomatoes together. 2. Simmer and serve.",tomatoes,30,g
+35,Avocado Tuna Salad,1. Mix tuna with diced avocado and lemon juice. 2. Serve chilled.,tuna,100,g
+35,Avocado Tuna Salad,1. Mix tuna with diced avocado and lemon juice. 2. Serve chilled.,avocado,50,g
+35,Avocado Tuna Salad,1. Mix tuna with diced avocado and lemon juice. 2. Serve chilled.,lemon juice,10,g
+36,Greek Chicken Skewers,1. Marinate chicken in lemon and olive oil. 2. Skewer with peppers and grill.,chicken breast,120,g
+36,Greek Chicken Skewers,1. Marinate chicken in lemon and olive oil. 2. Skewer with peppers and grill.,bell peppers,50,g
+36,Greek Chicken Skewers,1. Marinate chicken in lemon and olive oil. 2. Skewer with peppers and grill.,olive oil,5,g
+36,Greek Chicken Skewers,1. Marinate chicken in lemon and olive oil. 2. Skewer with peppers and grill.,lemon juice,5,g
+37,Lentil Veggie Bowl,1. Cook lentils. 2. Mix with spinach and carrots.,lentils,100,g
+37,Lentil Veggie Bowl,1. Cook lentils. 2. Mix with spinach and carrots.,spinach,50,g
+37,Lentil Veggie Bowl,1. Cook lentils. 2. Mix with spinach and carrots.,carrots,30,g
+38,Zucchini and Cheese Omelet,1. Cook eggs and zucchini. 2. Add cheese and fold.,egg,2,egg
+38,Zucchini and Cheese Omelet,1. Cook eggs and zucchini. 2. Add cheese and fold.,zucchini,50,g
+38,Zucchini and Cheese Omelet,1. Cook eggs and zucchini. 2. Add cheese and fold.,shredded cheese,20,g
+39,Grilled Chicken Salad,1. Toss all ingredients. 2. Serve fresh.,grilled chicken,100,g
+39,Grilled Chicken Salad,1. Toss all ingredients. 2. Serve fresh.,mixed greens,50,g
+39,Grilled Chicken Salad,1. Toss all ingredients. 2. Serve fresh.,cherry tomatoes,30,g
+39,Grilled Chicken Salad,1. Toss all ingredients. 2. Serve fresh.,balsamic vinaigrette,5,g
+40,Hummus and Veggies,1. Serve hummus with veggies for dipping.,hummus,50,g
+40,Hummus and Veggies,1. Serve hummus with veggies for dipping.,cucumber sticks,50,g
+40,Hummus and Veggies,1. Serve hummus with veggies for dipping.,carrot sticks,50,g
+41,Shrimp and Avocado Salad,1. Cook shrimp. 2. Toss with avocado and greens.,shrimp,100,g
+41,Shrimp and Avocado Salad,1. Cook shrimp. 2. Toss with avocado and greens.,avocado,50,g
+41,Shrimp and Avocado Salad,1. Cook shrimp. 2. Toss with avocado and greens.,mixed greens,30,g
+42,Quinoa and Black Bean Bowl,1. Mix quinoa with beans and corn. 2. Serve warm.,cooked quinoa,100,g
+42,Quinoa and Black Bean Bowl,1. Mix quinoa with beans and corn. 2. Serve warm.,black beans,100,g
+42,Quinoa and Black Bean Bowl,1. Mix quinoa with beans and corn. 2. Serve warm.,corn,50,g
+43,Spinach and Feta Stuffed Peppers,1. Stuff peppers with spinach and feta. 2. Bake until tender.,bell peppers,100,g
+43,Spinach and Feta Stuffed Peppers,1. Stuff peppers with spinach and feta. 2. Bake until tender.,spinach,50,g
+43,Spinach and Feta Stuffed Peppers,1. Stuff peppers with spinach and feta. 2. Bake until tender.,feta cheese,30,g
+44,Beef and Vegetable Stir-fry,1. Stir-fry beef and vegetables. 2. Serve hot.,lean beef,120,g
+44,Beef and Vegetable Stir-fry,1. Stir-fry beef and vegetables. 2. Serve hot.,broccoli,50,g
+44,Beef and Vegetable Stir-fry,1. Stir-fry beef and vegetables. 2. Serve hot.,bell peppers,50,g
+45,Cheese and Nut Snack,1. Serve cheese with nuts.,cheese,50,g
+45,Cheese and Nut Snack,1. Serve cheese with nuts.,mixed nuts,30,g
+46,Chicken and Vegetable Skewers,1. Skewer chicken and vegetables. 2. Grill until cooked.,chicken breast,100,g
+46,Chicken and Vegetable Skewers,1. Skewer chicken and vegetables. 2. Grill until cooked.,zucchini,50,g
+46,Chicken and Vegetable Skewers,1. Skewer chicken and vegetables. 2. Grill until cooked.,bell peppers,50,g
+47,Chickpea and Spinach Curry,1. Cook chickpeas with spinach and tomatoes. 2. Serve warm.,chickpeas,100,g
+47,Chickpea and Spinach Curry,1. Cook chickpeas with spinach and tomatoes. 2. Serve warm.,spinach,50,g
+47,Chickpea and Spinach Curry,1. Cook chickpeas with spinach and tomatoes. 2. Serve warm.,tomatoes,30,g
+48,Greek Yogurt with Nuts,1. Serve yogurt topped with nuts.,Greek yogurt,200,g
+48,Greek Yogurt with Nuts,1. Serve yogurt topped with nuts.,mixed nuts,30,g
+49,Turkey and Vegetable Stir-fry,1. Stir-fry turkey and vegetables. 2. Serve hot.,ground turkey,120,g
+49,Turkey and Vegetable Stir-fry,1. Stir-fry turkey and vegetables. 2. Serve hot.,broccoli,50,g
+49,Turkey and Vegetable Stir-fry,1. Stir-fry turkey and vegetables. 2. Serve hot.,bell peppers,50,g
+50,Cucumber and Hummus Snack,1. Serve cucumber slices with hummus.,cucumber,100,g
+50,Cucumber and Hummus Snack,1. Serve cucumber slices with hummus.,hummus,50,g
+51,Grilled Salmon Salad,1. Grill salmon and serve over greens.,salmon,120,g
+51,Grilled Salmon Salad,1. Grill salmon and serve over greens.,mixed greens,50,g
+51,Grilled Salmon Salad,1. Grill salmon and serve over greens.,cherry tomatoes,30,g
+52,Quinoa and Vegetable Bowl,1. Mix quinoa with vegetables. 2. Serve warm.,cooked quinoa,100,g
+52,Quinoa and Vegetable Bowl,1. Mix quinoa with vegetables. 2. Serve warm.,mixed vegetables,100,g
+53,Spinach and Feta Omelet,1. Cook eggs with spinach and feta. 2. Serve hot.,egg,2,egg
+53,Spinach and Feta Omelet,1. Cook eggs with spinach and feta. 2. Serve hot.,spinach,50,g
+53,Spinach and Feta Omelet,1. Cook eggs with spinach and feta. 2. Serve hot.,feta cheese,30,g
+54,Chicken and Broccoli Stir-fry,1. Stir-fry chicken and broccoli with soy sauce. 2. Serve hot.,chicken breast,120,g
+54,Chicken and Broccoli Stir-fry,1. Stir-fry chicken and broccoli with soy sauce. 2. Serve hot.,broccoli,50,g
+54,Chicken and Broccoli Stir-fry,1. Stir-fry chicken and broccoli with soy sauce. 2. Serve hot.,soy sauce,5,g
+55,Chicken and Vegetable Salad,1. Toss chicken with greens and tomatoes. 2. Serve fresh.,grilled chicken,100,g
+55,Chicken and Vegetable Salad,1. Toss chicken with greens and tomatoes. 2. Serve fresh.,mixed greens,50,g
+55,Chicken and Vegetable Salad,1. Toss chicken with greens and tomatoes. 2. Serve fresh.,cherry tomatoes,30,g
+56,Lentil and Vegetable Stew,1. Cook lentils with vegetables. 2. Serve warm.,lentils,100,g
+56,Lentil and Vegetable Stew,1. Cook lentils with vegetables. 2. Serve warm.,carrots,50,g
+56,Lentil and Vegetable Stew,1. Cook lentils with vegetables. 2. Serve warm.,zucchini,50,g
+57,Greek Yogurt with Berries,1. Serve yogurt topped with berries.,Greek yogurt,200,g
+57,Greek Yogurt with Berries,1. Serve yogurt topped with berries.,mixed berries,50,g
