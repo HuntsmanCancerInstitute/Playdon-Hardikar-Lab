@@ -1,3 +1,242 @@
+Trial 1:
+CREATE TABLE IF NOT EXISTS "NUTRIENT_INFO" (
+	"fdc_id"	INTEGER,
+	"description"	TEXT,
+	"Field3"	INTEGER,
+	PRIMARY KEY("fdc_id")
+);
+CREATE TABLE IF NOT EXISTS "RECIPE_CATEGORIES" (
+	"category_id"	INTEGER,
+	"category_name"	TEXT NOT NULL UNIQUE,
+	"description"	TEXT,
+	"dietary_tags"	INTEGER,
+	PRIMARY KEY("category_id" AUTOINCREMENT)
+);
+CREATE TABLE IF NOT EXISTS "RECIPE_INFO_1" (
+	"recipe_sku"	INTEGER,
+	"recipe_name"	TEXT NOT NULL,
+	"source_url"	TEXT,
+	"source_name"	TEXT,
+	"recipe_category"	TEXT,
+	"cuisine"	TEXT,
+	"prep_time_minutes"	INTEGER,
+	"total_time_minutes"	INTEGER,
+	"servings"	INTEGER,
+	"image_url"	TEXT,
+	"created_date"	TEXT,
+	"updated_date"	TEXT,
+	"preparation_instruction"	TEXT,
+	PRIMARY KEY("recipe_sku" AUTOINCREMENT)
+);
+CREATE TABLE IF NOT EXISTS "RECIPE_INGREDIENTS" (
+	"recipe_sku"	INTEGER,
+	"ingredient_name"	TEXT,
+	"food_id"	TEXT,
+	"quantity"	REAL,
+	"measure"	TEXT,
+	"description"	TEXT,
+	"order_in_recipe"	INTEGER,
+	"data_type"	TEXT,
+	PRIMARY KEY("recipe_sku","ingredient_name"),
+	FOREIGN KEY("food_id") REFERENCES "USDA_FOOD"("food_id"),
+	FOREIGN KEY("recipe_sku") REFERENCES "RECIPE_INFO_1"("recipe_sku")
+);
+CREATE TABLE IF NOT EXISTS "RECIPE_NUTRITIONAL_SUMMARY" (
+	"recipe_sku"	INTEGER,
+	"calories_total"	REAL,
+	"protein_total"	REAL,
+	"fat_total"	REAL,
+	"carb_total"	REAL,
+	"fiber_g"	REAL,
+	"sugar_g"	REAL,
+	"sodium_mg"	REAL,
+	"calcium_mg"	REAL,
+	"allergen_warnings"	TEXT,
+	PRIMARY KEY("recipe_sku"),
+	FOREIGN KEY("recipe_sku") REFERENCES "RECIPE_INFO_1"("recipe_sku")
+);
+CREATE TABLE IF NOT EXISTS "SYMPTOM" (
+	"symptom_id"	INTEGER,
+	"symptom_name"	TEXT,
+	"description"	TEXT,
+	PRIMARY KEY("symptom_id" AUTOINCREMENT)
+);
+CREATE TABLE IF NOT EXISTS "TREATMENT" (
+	"treatment_id"	INTEGER,
+	"Field2"	INTEGER,
+	PRIMARY KEY("treatment_id")
+);
+CREATE TABLE IF NOT EXISTS "USDA_FOOD" (
+	"food_id"	TEXT,
+	"food_name"	TEXT,
+	"food_group"	TEXT,
+	"publication_date"	TEXT,
+	PRIMARY KEY("food_id")
+);
+CREATE TABLE IF NOT EXISTS "USER_INFO" (
+	"user_id"	INTEGER,
+	"username"	TEXT NOT NULL,
+	"email"	TEXT NOT NULL UNIQUE,
+	"gender"	TEXT,
+	"age"	INTEGER,
+	"height"	REAL,
+	"weight"	REAL,
+	"dietary_restrictions"	TEXT,
+	"medical_conditions"	TEXT,
+	"preferences"	TEXT,
+	"activity_level"	TEXT,
+	"last_active"	TEXT,
+	"cancer_type"	TEXT,
+	"treatment_type"	TEXT,
+	PRIMARY KEY("user_id" AUTOINCREMENT)
+);
+CREATE TABLE IF NOT EXISTS "USER_RECIPES" (
+	"user_id"	INTEGER,
+	"recipe_sku"	INTEGER,
+	"status"	TEXT,
+	"rating"	REAL,
+	"feedback"	TEXT,
+	"personal_notes"	TEXT,
+	PRIMARY KEY("user_id","recipe_sku"),
+	FOREIGN KEY("recipe_sku") REFERENCES "RECIPE_INFO_1"("recipe_sku"),
+	FOREIGN KEY("user_id") REFERENCES "USER_INFO"("user_id")
+);
+CREATE TABLE IF NOT EXISTS "USER_RECOMMENDATIONS" (
+	"recommendation_id"	INTEGER,
+	"user_id"	INTEGER NOT NULL,
+	"recipe_sku"	INTEGER,
+	"rationale"	TEXT,
+	"recommendation_type"	TEXT,
+	"ai_confidence_score"	REAL,
+	"created_date"	TEXT,
+	"viewed"	BOOLEAN DEFAULT 0,
+	"accepted"	BOOLEAN DEFAULT 0,
+	"feedback"	TEXT,
+	"status"	TEXT DEFAULT 'pending' CHECK("status" IN ('pending', 'viewed', 'accepted', 'rejected')),
+	"meal_type"	TEXT CHECK("meal_type" IN ('Breakfast', 'Lunch', 'Dinner', 'Snack')),
+	PRIMARY KEY("recommendation_id" AUTOINCREMENT),
+	FOREIGN KEY("recipe_sku") REFERENCES "RECIPE_INFO_1"("recipe_sku"),
+	FOREIGN KEY("user_id") REFERENCES "USER_INFO"("user_id")
+);
+
+
+--------------------------------------------------------------------------------------------------------------------
+TRIAL 2:
+
+CREATE TABLE IF NOT EXISTS "FOOD_NUTRIENT" (
+	"id"	INTEGER,
+	"fdc_id"	INTEGER,
+	"nutrient_id"	INTEGER,
+	"amount"	REAL,
+	PRIMARY KEY("id" AUTOINCREMENT),
+	FOREIGN KEY("fdc_id") REFERENCES "USDA_FOOD"("fdc_id"),
+	FOREIGN KEY("nutrient_id") REFERENCES "NUTRIENT_INFO"("nutrient_id")
+);
+CREATE TABLE IF NOT EXISTS "NUTRIENT_INFO" (
+	"nutrient_id"	INTEGER,
+	"name"	TEXT,
+	"unit_name"	TEXT,
+	PRIMARY KEY("nutrient_id")
+);
+CREATE TABLE IF NOT EXISTS "RECIPE_INFO_1" (
+	"recipe_sku"	INTEGER,
+	"recipe_name"	TEXT NOT NULL,
+	"source_url"	TEXT,
+	"source_name"	TEXT,
+	"recipe_category"	TEXT,
+	"cuisine"	TEXT,
+	"prep_time_minutes"	INTEGER,
+	"total_time_minutes"	INTEGER,
+	"servings"	INTEGER,
+	"image_url"	TEXT,
+	"created_date"	TEXT,
+	"updated_date"	TEXT,
+	"preparation_instruction"	TEXT,
+	PRIMARY KEY("recipe_sku" AUTOINCREMENT)
+);
+CREATE TABLE IF NOT EXISTS "RECIPE_INGREDIENTS" (
+	"recipe_sku"	INTEGER,
+	"fdc_id"	INTEGER,
+	"quantity"	REAL,
+	"measure"	TEXT,
+	"description"	TEXT,
+	"order_in_recipe"	INTEGER,
+	"data_type"	TEXT,
+	PRIMARY KEY("recipe_sku","fdc_id"),
+	FOREIGN KEY("fdc_id") REFERENCES "USDA_FOOD"("fdc_id"),
+	FOREIGN KEY("recipe_sku") REFERENCES "RECIPE_INFO_1"("recipe_sku") ON DELETE CASCADE
+);
+CREATE TABLE IF NOT EXISTS "RECIPE_NUTRITIONAL_SUMMARY" (
+	"recipe_sku"	INTEGER,
+	"calories"	REAL,
+	"protein"	REAL,
+	"fat"	REAL,
+	"carbohydrates"	REAL,
+	"fiber"	REAL,
+	"sugar"	REAL,
+	PRIMARY KEY("recipe_sku"),
+	FOREIGN KEY("recipe_sku") REFERENCES "RECIPE_INFO_1"("recipe_sku") ON DELETE CASCADE
+);
+CREATE TABLE IF NOT EXISTS "USDA_FOOD" (
+	"fdc_id"	INTEGER,
+	"description"	TEXT,
+	"data_type"	TEXT,
+	"food_category_id"	INTEGER,
+	"publication_date"	TEXT,
+	PRIMARY KEY("fdc_id")
+);
+CREATE TABLE IF NOT EXISTS "USER_INFO" (
+	"user_id"	INTEGER,
+	"username"	TEXT NOT NULL,
+	"email"	TEXT NOT NULL UNIQUE,
+	"gender"	TEXT,
+	"age"	INTEGER,
+	"height"	REAL,
+	"weight"	REAL,
+	"dietary_restrictions"	TEXT,
+	"medical_conditions"	TEXT,
+	"preferences"	TEXT,
+	"activity_level"	TEXT,
+	"last_active"	TEXT,
+	PRIMARY KEY("user_id" AUTOINCREMENT)
+);
+CREATE TABLE IF NOT EXISTS "USER_RECIPES" (
+	"user_id"	INTEGER,
+	"recipe_sku"	INTEGER,
+	"status"	TEXT,
+	"rating"	REAL,
+	"feedback"	TEXT,
+	PRIMARY KEY("user_id","recipe_sku"),
+	FOREIGN KEY("recipe_sku") REFERENCES "RECIPE_INFO_1"("recipe_sku") ON DELETE CASCADE,
+	FOREIGN KEY("user_id") REFERENCES "USER_INFO"("user_id") ON DELETE CASCADE
+);
+CREATE TABLE IF NOT EXISTS "USER_RECOMMENDATIONS" (
+	"recommendation_id"	INTEGER,
+	"user_id"	INTEGER NOT NULL,
+	"recipe_sku"	INTEGER,
+	"rationale"	TEXT,
+	"recommendation_type"	TEXT,
+	"ai_confidence_score"	REAL,
+	"created_date"	TEXT,
+	"viewed"	BOOLEAN DEFAULT 0,
+	"accepted"	BOOLEAN DEFAULT 0,
+	"feedback"	TEXT,
+	"status"	TEXT,
+	"meal_type"	TEXT CHECK("meal_type" IN ('Breakfast', 'Lunch', 'Dinner', 'Snack')),
+	"source_model"	TEXT,
+	PRIMARY KEY("recommendation_id" AUTOINCREMENT),
+	FOREIGN KEY("recipe_sku") REFERENCES "RECIPE_INFO_1"("recipe_sku") ON DELETE CASCADE,
+	FOREIGN KEY("user_id") REFERENCES "USER_INFO"("user_id") ON DELETE CASCADE
+);
+INSERT INTO "RECIPE_INFO_1" VALUES (1,'Grilled Chicken Salad',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO "RECIPE_INGREDIENTS" VALUES (1,1001,200.0,NULL,NULL,NULL,NULL);
+INSERT INTO "RECIPE_INGREDIENTS" VALUES (1,1002,10.0,NULL,NULL,NULL,NULL);
+INSERT INTO "USDA_FOOD" VALUES (1001,'Chicken breast',NULL,NULL,NULL);
+INSERT INTO "USDA_FOOD" VALUES (1002,'Olive oil',NULL,NULL,NULL);
+
+----------------------------------------------------------------------------------------------------------------
+
+Trial 3 (Last Version: In progress but could not completely connect tables): Ended up switching to NEO4J 
 CREATE TABLE IF NOT EXISTS "food_nutrient" (
 	"food_nutrient_id"	INTEGER,
 	"ingredient_id"	INTEGER NOT NULL,
