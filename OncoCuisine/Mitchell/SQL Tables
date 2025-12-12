@@ -1,0 +1,239 @@
+CREATE TABLE IF NOT EXISTS "food_nutrient" (
+	"food_nutrient_id"	INTEGER,
+	"ingredient_id"	INTEGER NOT NULL,
+	"nutrient_id"	INTEGER NOT NULL,
+	"amount"	NUMERIC NOT NULL,
+	"data_points"	INTEGER,
+	"min"	NUMERIC,
+	"max"	NUMERIC,
+	"median"	NUMERIC,
+	"footnote"	TEXT,
+	PRIMARY KEY("food_nutrient_id"),
+	FOREIGN KEY("ingredient_id") REFERENCES "ingredients"("ingredient_id") ON DELETE CASCADE,
+	FOREIGN KEY("nutrient_id") REFERENCES "nutrient_info"("nutrient_id") ON DELETE CASCADE
+);
+CREATE TABLE IF NOT EXISTS "ingredient_symptom" (
+	"ingredient_id"	INTEGER NOT NULL,
+	"symptom_id"	INTEGER NOT NULL,
+	"effect_type"	TEXT NOT NULL CHECK("effect_type" IN ('HELPFUL', 'HARMFUL')),
+	"evidence_source"	TEXT,
+	"notes"	TEXT,
+	PRIMARY KEY("ingredient_id","symptom_id"),
+	FOREIGN KEY("ingredient_id") REFERENCES "ingredients"("ingredient_id") ON DELETE CASCADE,
+	FOREIGN KEY("symptom_id") REFERENCES "symptom"("symptom_id") ON DELETE CASCADE
+);
+CREATE TABLE IF NOT EXISTS "ingredient_treatment_interaction" (
+	"ingredient_id"	INTEGER NOT NULL,
+	"treatment_id"	INTEGER NOT NULL,
+	"interaction_type"	TEXT NOT NULL CHECK("interaction_type" IN ('POSITIVE', 'NEGATIVE')),
+	"evidence_source"	TEXT,
+	"notes"	TEXT,
+	PRIMARY KEY("ingredient_id","treatment_id"),
+	FOREIGN KEY("ingredient_id") REFERENCES "ingredients"("ingredient_id") ON DELETE CASCADE,
+	FOREIGN KEY("treatment_id") REFERENCES "treatment"("treatment_id") ON DELETE CASCADE
+);
+CREATE TABLE IF NOT EXISTS "ingredients" (
+	"ingredient_id"	INTEGER,
+	"name"	TEXT NOT NULL UNIQUE,
+	"fdc_id"	INTEGER,
+	"description"	TEXT,
+	"source"	TEXT,
+	"created_at"	DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	"updated_at"	DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	PRIMARY KEY("ingredient_id")
+);
+CREATE TABLE IF NOT EXISTS "nutrient_info" (
+	"nutrient_id"	INTEGER,
+	"name"	TEXT NOT NULL UNIQUE,
+	"unit_name"	TEXT NOT NULL,
+	"description"	TEXT,
+	PRIMARY KEY("nutrient_id")
+);
+CREATE TABLE IF NOT EXISTS "recipe_categories" (
+	"category_id"	INTEGER,
+	"name"	TEXT NOT NULL UNIQUE,
+	"description"	TEXT,
+	PRIMARY KEY("category_id")
+);
+CREATE TABLE IF NOT EXISTS "recipe_category_map" (
+	"recipe_id"	INTEGER NOT NULL,
+	"category_id"	INTEGER NOT NULL,
+	PRIMARY KEY("recipe_id","category_id"),
+	FOREIGN KEY("category_id") REFERENCES "recipe_categories"("category_id") ON DELETE CASCADE,
+	FOREIGN KEY("recipe_id") REFERENCES "recipes"("recipe_id") ON DELETE CASCADE
+);
+CREATE TABLE IF NOT EXISTS "recipe_ingredients" (
+	"recipe_id"	INTEGER NOT NULL,
+	"ingredient_id"	INTEGER NOT NULL,
+	"quantity"	NUMERIC,
+	"unit"	TEXT,
+	"preparation"	TEXT,
+	PRIMARY KEY("recipe_id","ingredient_id"),
+	FOREIGN KEY("ingredient_id") REFERENCES "ingredients"("ingredient_id") ON DELETE CASCADE,
+	FOREIGN KEY("recipe_id") REFERENCES "recipes"("recipe_id") ON DELETE CASCADE
+);
+CREATE TABLE IF NOT EXISTS "recipe_nutritional_summary" (
+	"recipe_id"	INTEGER,
+	"calories_kcal"	NUMERIC,
+	"protein_g"	NUMERIC,
+	"fat_g"	NUMERIC,
+	"carbs_g"	NUMERIC,
+	"fiber_g"	NUMERIC,
+	"sugar_g"	NUMERIC,
+	"sodium_mg"	NUMERIC,
+	"updated_at"	DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	PRIMARY KEY("recipe_id"),
+	FOREIGN KEY("recipe_id") REFERENCES "recipes"("recipe_id") ON DELETE CASCADE
+);
+CREATE TABLE IF NOT EXISTS "recipes" (
+	"recipe_id"	INTEGER,
+	"title"	TEXT NOT NULL,
+	"description"	TEXT,
+	"instructions"	TEXT,
+	"cuisine"	TEXT,
+	"source_url"	TEXT,
+	"prep_time_minutes"	NUMERIC,
+	"cook_time_minutes"	NUMERIC,
+	"total_time_minutes"	NUMERIC,
+	"servings"	NUMERIC,
+	"created_at"	DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	"updated_at"	DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	PRIMARY KEY("recipe_id")
+);
+CREATE TABLE IF NOT EXISTS "symptom" (
+	"symptom_id"	INTEGER,
+	"name"	TEXT NOT NULL UNIQUE,
+	"description"	TEXT,
+	PRIMARY KEY("symptom_id")
+);
+CREATE TABLE IF NOT EXISTS "treatment" (
+	"treatment_id"	INTEGER,
+	"name"	TEXT NOT NULL UNIQUE,
+	"type"	TEXT,
+	"description"	TEXT,
+	PRIMARY KEY("treatment_id")
+);
+CREATE TABLE IF NOT EXISTS "user_info" (
+	"user_id"	INTEGER,
+	"email"	TEXT UNIQUE,
+	"full_name"	TEXT,
+	"height_cm"	NUMERIC,
+	"weight_kg"	NUMERIC,
+	"age_years"	NUMERIC,
+	"sex"	TEXT,
+	"energy_expenditure"	NUMERIC,
+	"dietary_preferences"	TEXT,
+	"cultural_preferences"	TEXT,
+	"allergies"	TEXT,
+	"symptom_profile"	TEXT,
+	"daily_health_status"	TEXT,
+	"created_at"	DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	"updated_at"	DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	PRIMARY KEY("user_id")
+);
+CREATE TABLE IF NOT EXISTS "user_meal_plan_days" (
+	"meal_plan_day_id"	INTEGER,
+	"meal_plan_id"	INTEGER NOT NULL,
+	"day_number"	INTEGER NOT NULL CHECK("day_number" >= 1),
+	"date"	DATE,
+	PRIMARY KEY("meal_plan_day_id"),
+	UNIQUE("meal_plan_id","day_number"),
+	FOREIGN KEY("meal_plan_id") REFERENCES "user_meal_plans"("meal_plan_id") ON DELETE CASCADE
+);
+CREATE TABLE IF NOT EXISTS "user_meal_plan_items" (
+	"meal_plan_item_id"	INTEGER,
+	"meal_plan_day_id"	INTEGER NOT NULL,
+	"recipe_id"	INTEGER NOT NULL,
+	"meal_type"	TEXT NOT NULL CHECK("meal_type" IN ('BREAKFAST', 'LUNCH', 'DINNER', 'SNACK')),
+	"position"	INTEGER,
+	"notes"	TEXT,
+	PRIMARY KEY("meal_plan_item_id"),
+	FOREIGN KEY("meal_plan_day_id") REFERENCES "user_meal_plan_days"("meal_plan_day_id") ON DELETE CASCADE,
+	FOREIGN KEY("recipe_id") REFERENCES "recipes"("recipe_id") ON DELETE CASCADE
+);
+CREATE TABLE IF NOT EXISTS "user_meal_plans" (
+	"meal_plan_id"	INTEGER,
+	"user_id"	INTEGER NOT NULL,
+	"name"	TEXT,
+	"start_date"	DATE,
+	"end_date"	DATE,
+	"total_days"	INTEGER CHECK("total_days" >= 1),
+	"created_at"	DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	"updated_at"	DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	"is_favorite"	BOOLEAN NOT NULL DEFAULT FALSE,
+	PRIMARY KEY("meal_plan_id"),
+	FOREIGN KEY("user_id") REFERENCES "user_info"("user_id") ON DELETE CASCADE
+);
+CREATE TABLE IF NOT EXISTS "user_recipes" (
+	"user_id"	INTEGER NOT NULL,
+	"recipe_id"	INTEGER NOT NULL,
+	"saved_at"	DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	PRIMARY KEY("user_id","recipe_id"),
+	FOREIGN KEY("recipe_id") REFERENCES "recipes"("recipe_id") ON DELETE CASCADE,
+	FOREIGN KEY("user_id") REFERENCES "user_info"("user_id") ON DELETE CASCADE
+);
+CREATE TABLE IF NOT EXISTS "user_recommendations" (
+	"recommendation_id"	INTEGER,
+	"user_id"	INTEGER NOT NULL,
+	"recipe_id"	INTEGER,
+	"reason"	TEXT,
+	"recommended_at"	DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	PRIMARY KEY("recommendation_id"),
+	FOREIGN KEY("recipe_id") REFERENCES "recipes"("recipe_id") ON DELETE SET NULL,
+	FOREIGN KEY("user_id") REFERENCES "user_info"("user_id") ON DELETE CASCADE
+);
+INSERT INTO "ingredient_symptom" VALUES (1,1,'HELPFUL','UNC Lineberger','Common dietary recommendation');
+INSERT INTO "ingredient_symptom" VALUES (2,3,'HELPFUL','Clinical Nutrition Guidelines','Soft food recommended');
+INSERT INTO "ingredient_symptom" VALUES (6,1,'HELPFUL','Oncology Dietetics','Gentle carbohydrate source');
+INSERT INTO "ingredient_treatment_interaction" VALUES (3,1,'POSITIVE','Clinical Nutrition Review','Supports tolerance during treatment');
+INSERT INTO "ingredients" VALUES (1,'Ginger',11216,'Root commonly used to reduce nausea.','USDA','2025-12-12 06:18:26','2025-12-12 06:18:26');
+INSERT INTO "ingredients" VALUES (2,'Banana',9040,'Soft fruit easy to digest and rich in potassium.','USDA','2025-12-12 06:18:26','2025-12-12 06:18:26');
+INSERT INTO "ingredients" VALUES (3,'Oatmeal',8120,'Whole grain food gentle on the stomach.','USDA','2025-12-12 06:18:26','2025-12-12 06:18:26');
+INSERT INTO "ingredients" VALUES (4,'Chicken Breast',5062,'Lean protein source for recovery.','USDA','2025-12-12 06:18:26','2025-12-12 06:18:26');
+INSERT INTO "ingredients" VALUES (5,'Yogurt',1116,'Probiotic-rich dairy supporting gut health.','USDA','2025-12-12 06:18:26','2025-12-12 06:18:26');
+INSERT INTO "ingredients" VALUES (6,'Rice',20445,'Low-fiber carbohydrate easy to digest.','USDA','2025-12-12 06:18:26','2025-12-12 06:18:26');
+INSERT INTO "nutrient_info" VALUES (1,'Calories','kcal','Total energy provided by food.');
+INSERT INTO "nutrient_info" VALUES (2,'Protein','g','Macronutrient essential for tissue repair and immune function.');
+INSERT INTO "nutrient_info" VALUES (3,'Fat','g','Macronutrient providing energy and aiding nutrient absorption.');
+INSERT INTO "nutrient_info" VALUES (4,'Carbohydrates','g','Primary energy source for the body.');
+INSERT INTO "nutrient_info" VALUES (5,'Fiber','g','Indigestible carbohydrate supporting gut health.');
+INSERT INTO "nutrient_info" VALUES (6,'Sugar','g','Simple carbohydrates that provide quick energy.');
+INSERT INTO "nutrient_info" VALUES (7,'Sodium','mg','Electrolyte important for fluid balance.');
+INSERT INTO "recipe_ingredients" VALUES (1,2,1,'cup','sliced');
+INSERT INTO "recipe_ingredients" VALUES (1,3,0.5,'cup','cooked');
+INSERT INTO "recipe_nutritional_summary" VALUES (1,220,6,4,42,5,12,120,'2025-12-12 06:18:26');
+INSERT INTO "recipes" VALUES (1,'Banana Oatmeal','Soft, easy-to-digest breakfast for nausea.','Cook oats with water or milk. Add sliced banana and stir gently.','American',NULL,5,10,15,1,'2025-12-12 06:18:26','2025-12-12 06:18:26');
+INSERT INTO "symptom" VALUES (1,'Nausea','Feeling of sickness with an urge to vomit, commonly associated with chemotherapy.');
+INSERT INTO "symptom" VALUES (2,'Vomiting','Forceful expulsion of stomach contents related to treatment side effects.');
+INSERT INTO "symptom" VALUES (3,'Diarrhea','Frequent loose stools that may result from chemotherapy or radiation.');
+INSERT INTO "symptom" VALUES (4,'Constipation','Difficulty passing stools, often due to medications or reduced activity.');
+INSERT INTO "symptom" VALUES (5,'Mucositis','Inflammation and ulceration of the mouth and digestive tract lining.');
+INSERT INTO "symptom" VALUES (6,'Dry Mouth','Reduced saliva production causing difficulty swallowing and discomfort.');
+INSERT INTO "symptom" VALUES (7,'Taste Changes','Altered taste perception such as metallic or bitter flavors.');
+INSERT INTO "symptom" VALUES (8,'Fatigue','Persistent exhaustion not relieved by rest.');
+INSERT INTO "symptom" VALUES (9,'Weight Loss','Unintentional loss of body weight during cancer treatment.');
+INSERT INTO "symptom" VALUES (10,'Anxiety','Feelings of fear or worry related to illness or treatment.');
+INSERT INTO "treatment" VALUES (1,'Chemotherapy','Drug Therapy','Use of cytotoxic drugs to destroy cancer cells.');
+INSERT INTO "treatment" VALUES (2,'Radiation Therapy','Radiologic','High-energy radiation used to kill cancer cells.');
+INSERT INTO "treatment" VALUES (3,'Immunotherapy','Biologic','Treatment that stimulates the immune system to fight cancer.');
+INSERT INTO "treatment" VALUES (4,'Targeted Therapy','Drug Therapy','Drugs designed to target specific cancer cell pathways.');
+CREATE INDEX IF NOT EXISTS "idx_ingredient_name" ON "ingredients" (
+	"name"
+);
+CREATE INDEX IF NOT EXISTS "idx_recipe_title" ON "recipes" (
+	"title"
+);
+CREATE INDEX IF NOT EXISTS "idx_symptom_name" ON "symptom" (
+	"name"
+);
+CREATE INDEX IF NOT EXISTS "idx_treatment_name" ON "treatment" (
+	"name"
+);
+CREATE INDEX IF NOT EXISTS "idx_user_meal_plan_day" ON "user_meal_plan_days" (
+	"meal_plan_id",
+	"day_number"
+);
+CREATE INDEX IF NOT EXISTS "idx_user_meal_plan_item" ON "user_meal_plan_items" (
+	"meal_plan_day_id",
+	"meal_type"
+);
